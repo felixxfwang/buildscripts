@@ -26,5 +26,7 @@ ext {
     androidEspressoVersion = '3.3.0'
     roomTestVersion = '2.2.3'
 
+    auto_service_version = '1.0-rc6'
+
     resConfigs = ['ar', 'es', 'fa', 'fr', 'ja', 'ko', 'ru', 'tr', 'zh-rCN', 'zh-rTW']
 }

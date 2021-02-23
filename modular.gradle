@@ -3,8 +3,8 @@ import org.tiramisu.gradle.ModularPlugin
 def runAlone = isRunAlone.toBoolean()
 if (runAlone) {
     apply plugin: 'com.android.application'
-    apply from: rootProject.file('gradle/multidex.gradle')
-    apply from: rootProject.file('gradle/release.gradle')
+    apply from: rootProject.file('buildscripts/multidex.gradle')
+    apply from: rootProject.file('buildscripts/release.gradle')
 } else {
     apply plugin: 'com.android.library'
 }
