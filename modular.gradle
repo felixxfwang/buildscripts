@@ -1,0 +1,82 @@
+import org.tiramisu.gradle.ModularPlugin
+
+def runAlone = isRunAlone.toBoolean()
+if (runAlone) {
+    apply plugin: 'com.android.application'
+    apply from: rootProject.file('gradle/multidex.gradle')
+    apply from: rootProject.file('gradle/release.gradle')
+} else {
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: ModularPlugin
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+
+        if (runAlone) {
+            applicationId project.applicationId
+            versionCode rootProject.versionCode
+            versionName rootProject.versionName
+        } else {
+            versionCode 1
+            versionName "1.0"
+            consumerProguardFiles 'consumer-rules.pro'
+        }
+    }
+
+    if (!isRunAlone) {
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            // 单独调试与集成调试时使用不同的 AndroidManifest.xml 文件
+            if (runAlone) {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+
+//    def prefix = project.name.replace('-', '_').toLowerCase()
+//    resourcePrefix "${prefix}_"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
+    implementation "androidx.activity:activity:$activity_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation 'androidx.annotation:annotation:1.2.0-beta01'
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+}

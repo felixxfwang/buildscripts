@@ -1,0 +1,7 @@
+def hooksDir = rootProject.file('.git/hooks')
+copy {
+    def srcDir = rootProject.file('basic/githooks/')
+    from srcDir
+    into hooksDir
+    rename { name -> name.replace('.sh', '') }
+}

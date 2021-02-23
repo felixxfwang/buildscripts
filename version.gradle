@@ -1,0 +1,30 @@
+ext {
+    javaVersion = JavaVersion.VERSION_1_8
+    minSdkVersion = 21
+    targetSdkVersion = 29
+    compileSdkVersion = 30
+    buildToolsVersion = "30.0.3"
+    versionCode = 1
+    versionName = '1.0.0'
+
+    kotlin_version = '1.4.30'
+    anko_version = '0.10.8'
+    activity_version = '1.3.0-alpha02'
+    core_ktx_version = '1.3.2'
+    appcompat_version = '1.3.0-beta01'
+    fragment_version = '1.3.0'
+    recyclerview_version = '1.1.0'
+    metieral_version = '1.3.0'
+    lifecycle_version = '2.3.0'
+    desugarLibsVersion = '1.0.9'
+    multidex_version = '2.0.1'
+    kotlinx_coroutine = '1.3.0'
+    nav_version = '2.3.3'
+
+    junitVersion = '4.13.2'
+    androidTestVersion = '1.2.0'
+    androidEspressoVersion = '3.3.0'
+    roomTestVersion = '2.2.3'
+
+    resConfigs = ['ar', 'es', 'fa', 'fr', 'ja', 'ko', 'ru', 'tr', 'zh-rCN', 'zh-rTW']
+}
