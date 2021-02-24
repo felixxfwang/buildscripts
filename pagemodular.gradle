@@ -1,0 +1,7 @@
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    kapt project(":basic:page-modular-processor")
+    implementation project(":basic:page-modular-annotations")
+    implementation project(":basic:page-modular")
+}

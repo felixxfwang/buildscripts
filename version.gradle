@@ -27,6 +27,7 @@ ext {
     roomTestVersion = '2.2.3'
 
     auto_service_version = '1.0-rc6'
+    lottie_version = '3.6.1'
 
     resConfigs = ['ar', 'es', 'fa', 'fr', 'ja', 'ko', 'ru', 'tr', 'zh-rCN', 'zh-rTW']
 }
