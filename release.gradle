@@ -5,7 +5,7 @@ android {
             // your project's release build type.
             minifyEnabled true
 
-            if (isRunAlone.toBoolean()) {
+            if (isRunAlone()) {
                 // Enables resource shrinking, which is performed by the
                 // Android Gradle plugin.
                 shrinkResources true

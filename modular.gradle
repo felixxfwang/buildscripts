@@ -1,6 +1,6 @@
 import org.tiramisu.gradle.ModularPlugin
 
-def runAlone = isRunAlone.toBoolean()
+def runAlone = isRunAlone()
 if (runAlone) {
     apply plugin: 'com.android.application'
     apply from: rootProject.file('buildscripts/multidex.gradle')
