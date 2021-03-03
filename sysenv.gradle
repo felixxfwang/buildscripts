@@ -1,0 +1,7 @@
+ext {
+    env = [
+        isCI: System.env.CI ?: false
+    ]
+}
+
+println("env: ${ext.env}")
