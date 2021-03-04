@@ -2,3 +2,19 @@ apply plugin: 'com.google.gms.google-services'
 
 // Apply the Crashlytics Gradle plugin
 apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    // To enable Crashlytics mapping file upload for specific build types:
+    buildTypes {
+        debug {
+            firebaseCrashlytics {
+                mappingFileUploadEnabled false
+            }
+        }
+        release {
+            firebaseCrashlytics {
+                mappingFileUploadEnabled true
+            }
+        }
+    }
+}
