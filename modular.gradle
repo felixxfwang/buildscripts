@@ -23,13 +23,11 @@ android {
 
         if (runAlone) {
             applicationId project.applicationId
-            versionCode rootProject.versionCode
-            versionName rootProject.versionName
         } else {
-            versionCode 1
-            versionName "1.0"
             consumerProguardFiles 'consumer-rules.pro'
         }
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
     }
 
     if (!isRunAlone) {
